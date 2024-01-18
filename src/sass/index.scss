@@ -1,0 +1,51 @@
+@use './resets';
+@use './variables' as *;
+
+body {
+  font-family: 'Noto Sans';
+}
+html {
+  position: relative;
+  &::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($black, 0.2);
+  }
+}
+.renderedImage {
+  background-color: $gray-300 !important;
+}
+[id^='__lpform_'] {
+  display: none !important;
+}
+[data-lastpass-icon-root] {
+  display: none;
+}
+#modal-root {
+  position: fixed;
+  overflow-y: auto;
+  inset: 0 0 auto 0;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  z-index: 3;
+  &::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($black, 0.2);
+  }
+
+  &::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-color: rgba($black, 0.1);
+  }
+  &:empty {
+    display: none;
+  }
+}

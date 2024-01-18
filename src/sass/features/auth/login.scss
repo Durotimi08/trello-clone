@@ -1,0 +1,6 @@
+@use '../../variables' as *;
+@use '../../utils' as utils;
+
+.login {
+  @include utils.auth;
+}

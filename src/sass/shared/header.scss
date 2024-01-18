@@ -1,0 +1,149 @@
+@use '../variables' as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: $spacer;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.05);
+  isolation: isolate;
+  position: relative;
+  z-index: 2;
+
+  &__logo {
+    margin-right: $spacer;
+  }
+  .boards__info {
+    display: flex;
+    align-items: center;
+    color: $dark-100;
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 1.35rem;
+    margin-left: $spacer * 1.5;
+
+    p {
+      width: 130px;
+    }
+
+    @include screen(1184) {
+      display: none;
+    }
+
+    div:not(.loader) {
+      background-color: $gray-50;
+      height: 2.5rem;
+      margin-inline: $spacer;
+      width: 2px;
+    }
+    a {
+      text-decoration: none;
+    }
+  }
+  &__notifications {
+    margin-inline: auto $spacer * 3;
+    position: relative;
+    z-index: 1;
+
+    @include screen(521) {
+      &.shown {
+        transform: none !important;
+      }
+      position: unset;
+    }
+    &.unread {
+      &::after {
+        content: '';
+        position: absolute;
+        width: 10px;
+        aspect-ratio: 1 / 1;
+        background-color: #ff0000;
+        border-radius: 50%;
+        inset: auto 0 50% auto;
+        cursor: pointer;
+      }
+    }
+    .bell {
+      display: block;
+      width: 20px;
+      cursor: pointer;
+    }
+  }
+  &__label {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.1));
+    background-color: $white;
+    border-radius: 0.5rem;
+    padding: $spacer * 0.2;
+
+    input {
+      border: none;
+      outline: none;
+      height: 100%;
+      background-color: transparent;
+      font-family: 'Poppins';
+      font-weight: 500;
+      color: $gray-200;
+      padding-inline: $spacer;
+      padding-block: 0.75em;
+      font-size: 0.95rem;
+      width: 100%;
+
+      &::placeholder {
+        color: $gray-300;
+      }
+    }
+    @include screen(480) {
+      width: calc(100% - (98px + 1rem));
+    }
+    @include screen(400) {
+      max-width: 150px;
+      &:has(input:focus) {
+        max-width: unset;
+      }
+      button {
+        display: none;
+      }
+      input {
+        padding-block: 0.75em;
+      }
+    }
+  }
+  .user {
+    display: flex;
+    align-items: center;
+    gap: $spacer * 0.8;
+    margin-left: $spacer * 2.5;
+
+    &__image {
+      width: 45px;
+      height: 45px;
+      border-radius: 8px;
+      object-fit: cover;
+      object-position: top center;
+    }
+    &__name {
+      text-transform: capitalize;
+      font-weight: 700;
+      max-width: 150px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #4f4f4f;
+
+      @include screen(770) {
+        display: none;
+      }
+    }
+    &__caret {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      object-fit: contain;
+    }
+
+    @include screen(600) {
+      display: none;
+    }
+  }
+}

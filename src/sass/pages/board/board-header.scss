@@ -1,0 +1,36 @@
+@use '../../variables' as *;
+@use '../../utils' as utils;
+
+.board-header {
+  display: flex;
+  gap: $spacer * 1.5;
+  padding-block: $spacer;
+  position: relative;
+  z-index: 1;
+
+  @include screen(650) {
+    padding-inline: $spacer;
+  }
+
+  .board__users {
+    @include utils.users;
+    margin-right: auto;
+
+    & > img,
+    & > div {
+      width: 40px;
+      height: 40px;
+    }
+    .add-user-btn {
+      background-color: $blue-300;
+      position: relative;
+      cursor: pointer;
+    }
+    @include screen(650) {
+      img,
+      div {
+        display: none;
+      }
+    }
+  }
+}

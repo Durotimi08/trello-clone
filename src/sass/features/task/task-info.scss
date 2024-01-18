@@ -1,0 +1,128 @@
+@use '../../variables' as *;
+
+.task-info {
+  background-color: $white;
+  position: relative;
+  z-index: 1;
+  padding: $spacer * 1.5;
+  width: 700px;
+  display: grid;
+  grid-template: auto 1fr / 1fr max-content;
+  grid-template-areas: 'cover cover' 'main actions';
+  align-items: baseline;
+  gap: $spacer;
+  margin: $spacer auto;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px 0px #0000000d;
+
+  @include screen(730) {
+    grid-template: auto auto 1fr / 1fr;
+    grid-template-areas: 'cover' 'actions' 'main';
+    width: max(90%, 412px);
+  }
+  .cover-container {
+    position: relative;
+    grid-area: cover;
+
+    .cover__img,
+    canvas {
+      width: 100%;
+      aspect-ratio: 617 / 130;
+      object-fit: cover;
+      border-radius: 0.75rem;
+    }
+    .cancel {
+      position: absolute;
+      inset: 0 0 auto auto;
+      background-color: $blue-300;
+      border-radius: 8px;
+      width: 30px;
+      transform: translate(50%, -50%);
+      cursor: pointer;
+    }
+  }
+  &__main {
+    font-family: 'Noto Sans';
+    grid-area: main;
+    h1 {
+      font-weight: 400;
+      font-size: 1.35rem;
+    }
+    .task-list {
+      display: flex;
+      align-items: center;
+      gap: $spacer * 0.5;
+      font-weight: 500;
+      color: $gray-300;
+      font-size: 0.95rem;
+
+      span {
+        color: $dark-100;
+      }
+    }
+  }
+  .attachment {
+    display: grid;
+    align-items: center;
+    grid-template: repeat(3, auto) / 100px 1fr;
+    grid-template-areas: 'preview date' 'preview name' 'preview buttons';
+    column-gap: $spacer;
+    margin-top: $spacer;
+
+    .file-preview {
+      width: 100%;
+      grid-area: preview;
+      height: 100%;
+      max-height: 85px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    div.file-preview {
+      background-color: $gray-50;
+      display: grid;
+      place-content: center;
+      color: $gray-400;
+      font-size: 1.2rem;
+      font-weight: 500;
+      font-family: 'Poppins';
+      text-transform: uppercase;
+    }
+    .date {
+      grid-area: date;
+      font-family: 'Poppins';
+      font-weight: 500;
+      color: $gray-300;
+      font-size: 0.9rem;
+    }
+    .name {
+      grid-area: name;
+      font-family: 'Poppins';
+      font-weight: 500;
+      font-size: 1.05rem;
+      color: $dark-100;
+    }
+    .button-container {
+      grid-area: buttons;
+      display: flex;
+      align-items: center;
+      gap: $spacer;
+      margin-top: $spacer * 0.5;
+
+      button {
+        background-color: transparent;
+        border: 2px solid $gray-300;
+        color: $gray-200;
+        border-radius: 8px;
+        padding: 0.5em 1em;
+        text-transform: capitalize;
+        font-size: 0.9rem;
+        cursor: pointer;
+        font-weight: 500;
+
+        &:disabled {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}

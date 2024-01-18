@@ -1,0 +1,320 @@
+@use './variables' as *;
+
+@mixin users {
+  display: flex;
+  align-items: center;
+  gap: $spacer * 0.5;
+  font-family: 'Noto Sans';
+  font-weight: 500;
+  color: $gray-300;
+
+  & > img,
+  & > div {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  & > div {
+    background-color: $gray-300;
+    display: grid;
+    place-content: center;
+    color: $white;
+    font-weight: 500;
+    font-family: 'Poppins';
+  }
+}
+
+@mixin auth {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+
+  @include screen(760) {
+    display: block;
+  }
+
+  &__main,
+  & > img {
+    width: 100%;
+    height: 100%;
+  }
+  &__main {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    padding: $spacer;
+  }
+  & > img {
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    inset: 0 0 0 50%;
+    width: 50%;
+
+    @include screen(760) {
+      display: none;
+    }
+  }
+  form {
+    margin: auto;
+    max-width: 400px;
+
+    @include screen(760) {
+      position: absolute;
+      inset: 50% auto auto 50%;
+      transform: translate(-50%, -50%);
+      width: min(90%, 400px);
+    }
+    h1 {
+      font-family: 'Noto Sans';
+      font-weight: 500;
+      font-size: 1.65rem;
+      color: $dark-100;
+    }
+    .login__subheader {
+      font-weight: 500;
+      color: $gray-200;
+      margin-top: $spacer * 0.5;
+    }
+    .google__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: $spacer;
+      font-weight: 500;
+      padding: 0.75em 1.3em;
+      border: none;
+      outline: none;
+      background-color: $white;
+      box-shadow: 0 0 4px 2px rgba($gray-200, 0.15);
+      min-width: 280px;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: $spacer * 1.7;
+
+      img {
+        width: 30px;
+      }
+    }
+    .or {
+      color: $gray-300;
+      width: 100%;
+      position: relative;
+      text-align: center;
+      margin-block: $spacer * 1.5;
+
+      &::before,
+      &::after {
+        content: '';
+        width: 45%;
+        height: 1px;
+        position: absolute;
+        transform: translateY(-50%);
+        background-color: $gray-300;
+      }
+      &::before {
+        inset: 50% auto auto 0;
+      }
+      &::after {
+        inset: 50% 0 auto auto;
+      }
+    }
+    & > label {
+      display: block;
+      position: relative;
+      margin-bottom: $spacer;
+
+      img {
+        position: absolute;
+        cursor: pointer;
+        width: 20px;
+        inset: 50% 1.3em auto auto;
+        transform: translateY(-50%);
+      }
+
+      input {
+        padding: 0.75em 1.3em;
+        width: 100%;
+        border: 2px solid $gray-300;
+        outline: none;
+        border-radius: 4px;
+        color: $dark-100;
+        background-image: none !important;
+
+        /* For most modern browsers */
+        &:-webkit-autofill {
+          background-color: transparent !important;
+        }
+
+        /* For Firefox */
+        &:-moz-autofill {
+          background-color: transparent !important;
+        }
+
+        /* For Microsoft Edge */
+        &:-ms-autofill {
+          background-color: transparent !important;
+        }
+
+        &:focus {
+          border: 2px solid $gray-200;
+        }
+        &::placeholder {
+          font-weight: 500;
+          color: $gray-200;
+        }
+      }
+    }
+    .footer {
+      display: flex;
+      gap: $spacer;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      color: $gray-400;
+      font-weight: 500;
+      font-size: 0.95rem;
+
+      label {
+        display: flex;
+        align-items: center;
+        gap: $spacer * 0.3;
+
+        input {
+          border-color: $gray-200;
+          outline: none;
+          cursor: pointer;
+        }
+      }
+      button {
+        text-decoration: underline;
+        cursor: pointer;
+        background-color: inherit;
+        border: none;
+        outline: none;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+    }
+    .login__btn {
+      width: 100%;
+      border: none;
+      outline: none;
+      background-color: $dark-100;
+      color: $gray-100;
+      margin-block: $spacer;
+      padding: 0.75em 1.3em;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: $spacer;
+    }
+    .login__btn + p {
+      text-align: center;
+
+      a {
+        font-weight: 500;
+        color: $dark-100;
+        position: relative;
+        text-decoration: none;
+        cursor: pointer;
+
+        img {
+          position: absolute;
+          width: 90%;
+          inset: 100% auto auto 0;
+        }
+      }
+    }
+  }
+}
+
+@mixin notifications {
+  width: 390px;
+  padding: $spacer;
+  padding-top: 0;
+  box-shadow: 0 0 4px rgba($gray-400, 0.1);
+  border-radius: 8px;
+  position: absolute;
+  inset: calc(130% + $spacer) auto auto 0;
+  z-index: 2;
+  background-color: $white;
+  border: 1px solid $gray-50;
+  max-height: 368px;
+  overflow: auto;
+  @include screen(521) {
+    inset: 105% auto auto $spacer;
+    width: min(90%, 390px);
+  }
+  &::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($black, 0.2);
+  }
+
+  &__header {
+    display: grid;
+    grid-template: repeat(2, auto) / 1fr auto;
+    padding-block: $spacer;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: $white;
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      font-family: 'Poppins';
+      color: $dark-100;
+    }
+    img {
+      width: 30px;
+      cursor: pointer;
+      box-shadow: 0 0 4px rgba($gray-400, 0.3);
+      border-radius: 8px;
+      padding: 0.2em;
+    }
+    .tabs {
+      display: flex;
+      align-items: center;
+      gap: $spacer;
+      font-weight: 500;
+      cursor: pointer;
+      margin-top: $spacer * 0.5;
+      user-select: none;
+      -webkit-user-select: none;
+
+      p {
+        text-decoration: none;
+        color: $gray-200;
+        user-select: none;
+        -webkit-user-select: none;
+
+        &.active {
+          color: $dark-100;
+          text-decoration: 2px solid underline;
+        }
+      }
+    }
+  }
+}
+
+@mixin delete {
+  background-color: transparent;
+  color: $red-100;
+  border: 2px solid $red-100;
+  border-radius: 15px;
+  outline: none;
+  padding: 0.5em 1em;
+  text-transform: capitalize;
+  font-family: 'Poppins';
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+}

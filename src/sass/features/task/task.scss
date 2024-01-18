@@ -1,0 +1,75 @@
+@use '../../variables' as *;
+@use '../../utils' as utils;
+
+.task {
+  padding: $spacer;
+  background-color: $white;
+  box-shadow: 0px 4px 12px 0px #0000000d;
+  border-radius: 12px;
+  margin-bottom: $spacer * 1.5;
+  min-width: 243px;
+  cursor: pointer;
+  transition: rotate 150ms linear;
+
+  &.drag {
+    rotate: 5deg !important;
+  }
+
+  &__image,
+  canvas {
+    aspect-ratio: 219 / 130;
+    object-fit: cover;
+    border-radius: 12px;
+    width: 100%;
+  }
+  &__title {
+    font-weight: 400;
+    font-family: 'Noto Sans';
+    font-size: 1.25rem;
+    margin-block: $spacer * 0.4;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacer * 0.6;
+
+    .tag {
+      text-transform: capitalize;
+      border-radius: 100vh;
+      padding: 0.3em 1em;
+      font-size: 0.85rem;
+      font-weight: 500;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+  }
+  .footer {
+    margin-top: $spacer;
+    display: flex;
+    gap: $spacer * 0.65;
+    justify-content: space-between;
+  }
+  &__users {
+    @include utils.users;
+
+    div {
+      background-color: $blue-300;
+    }
+  }
+  &__info {
+    display: flex;
+    gap: $spacer * 0.1;
+
+    p {
+      display: flex;
+      gap: $spacer * 0.2;
+      align-items: center;
+      color: $gray-300;
+      font-size: 0.85rem;
+
+      img {
+        width: 15px;
+      }
+    }
+  }
+}

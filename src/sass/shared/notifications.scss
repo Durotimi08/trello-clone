@@ -1,0 +1,68 @@
+@use '../variables' as *;
+@use '../utils' as utils;
+
+.notifications {
+  @include utils.notifications;
+
+  .notification {
+    display: grid;
+    gap: $spacer * 0.5;
+    align-items: start;
+    grid-template: repeat(3, auto) / auto 1fr;
+    grid-template-areas: 'img message' 'img time' '. buttons';
+    font-size: 0.9rem;
+    color: $dark-100;
+    margin-top: $spacer;
+
+    &__img {
+      grid-area: img;
+      width: 48px;
+      border-radius: 8px;
+    }
+    &__message {
+      grid-area: message;
+      font-weight: 500;
+      font-size: 0.95rem;
+
+      span {
+        color: $black;
+        font-weight: 600;
+        font-family: 'Poppins';
+      }
+    }
+    &__time {
+      grid-area: time;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: $gray-200;
+    }
+    &__actions {
+      grid-area: buttons;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      button {
+        border: none;
+        outline: none;
+        padding: 0.5em 1em;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:disabled {
+          background-color: $gray-200;
+          cursor: pointer;
+        }
+        &:first-child {
+          background-color: rgba(#eb0a0a, 0.7);
+          color: $white;
+        }
+        &:last-child {
+          background-color: #219653;
+          color: $white;
+        }
+      }
+    }
+  }
+}
