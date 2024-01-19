@@ -2,7 +2,7 @@
 
 Enhance team productivity and collaboration with this feature-rich Collaboration Tool. Create boards, assign tasks, share files, and communicate effectively, all within a secure environment.
 
-![Screenshot (220)](https://github.com/Durotimi08/trello-clone/src/assets/96974022/b0764e81-5ec2-4b1c-9973-2179b886b268)
+![Screenshot (220)](https://github-production-user-asset-6210df.s3.amazonaws.com/96974022/263492621-b0764e81-5ec2-4b1c-9973-2179b886b268.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240119%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240119T000945Z&X-Amz-Expires=300&X-Amz-Signature=fa1cea43afdda2b03796e81b46acc75c6b5d80b27ceee9107c78391f816030c5&X-Amz-SignedHeaders=host&actor_id=137691932&key_id=0&repo_id=671029817)
 
 ## Table of Contents
 
