@@ -2,7 +2,7 @@
 
 Enhance team productivity and collaboration with this feature-rich Collaboration Tool. Create boards, assign tasks, share files, and communicate effectively, all within a secure environment.
 
-![Screenshot (220)](https://github.com/Durotimi08/trello-clone/assets/96974022/b0764e81-5ec2-4b1c-9973-2179b886b268)
+![Screenshot (220)](https://github.com/Durotimi08/trello-clone/src/assets/96974022/b0764e81-5ec2-4b1c-9973-2179b886b268)
 
 ## Table of Contents
 
@@ -39,7 +39,7 @@ Enhance team productivity and collaboration with this feature-rich Collaboration
 ## Installation
 
 1. Clone the repository.
-2. Navigate to the project directory: `cd trello-Clone`.
+2. Navigate to the project directory: `cd trello-clone`.
 3. Install dependencies: `npm install`.
 
 ## License
