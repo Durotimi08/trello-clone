@@ -39,7 +39,7 @@ Challenge from [devchallenges](https://devchallenges.io/). Enhance team producti
 ## Installation
 
 1. Clone the repository.
-2. Navigate to the project directory: `cd Trullo---Trello-Clone`.
+2. Navigate to the project directory: `cd trello-Clone`.
 3. Install dependencies: `npm install`.
 
 ## License
